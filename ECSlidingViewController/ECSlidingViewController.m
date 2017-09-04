@@ -42,13 +42,13 @@
 @property (nonatomic, assign) BOOL isAnimated;
 @property (nonatomic, assign) BOOL isInteractive;
 @property (nonatomic, assign) BOOL transitionInProgress;
-@property (nonatomic, copy) void (^animationComplete)();
+@property (nonatomic, copy) void (^animationComplete)(void);
 @property (nonatomic, copy) void (^coordinatorAnimations)(id<UIViewControllerTransitionCoordinatorContext>context);
 @property (nonatomic, copy) void (^coordinatorCompletion)(id<UIViewControllerTransitionCoordinatorContext>context);
 @property (nonatomic, copy) void (^coordinatorInteractionEnded)(id<UIViewControllerTransitionCoordinatorContext>context);
 - (void)setup;
 
-- (void)moveTopViewToPosition:(ECSlidingViewControllerTopViewPosition)position animated:(BOOL)animated onComplete:(void(^)())complete;
+- (void)moveTopViewToPosition:(ECSlidingViewControllerTopViewPosition)position animated:(BOOL)animated onComplete:(void(^)(void))complete;
 - (CGRect)topViewCalculatedFrameForPosition:(ECSlidingViewControllerTopViewPosition)position;
 - (CGRect)underLeftViewCalculatedFrameForTopViewPosition:(ECSlidingViewControllerTopViewPosition)position;
 - (CGRect)underRightViewCalculatedFrameForTopViewPosition:(ECSlidingViewControllerTopViewPosition)position;
@@ -86,6 +86,11 @@
     return self;
 }
 
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder { 
+    [super encodeWithCoder:aCoder];
+}
+
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -114,6 +119,7 @@
 #pragma mark - UIViewController
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     if (self.topViewControllerStoryboardId) {
         self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.topViewControllerStoryboardId];
     }
@@ -431,21 +437,21 @@
     [self resetTopViewAnimated:animated onComplete:nil];
 }
 
-- (void)anchorTopViewToRightAnimated:(BOOL)animated onComplete:(void (^)())complete {
+- (void)anchorTopViewToRightAnimated:(BOOL)animated onComplete:(void (^)(void))complete {
     [self moveTopViewToPosition:ECSlidingViewControllerTopViewPositionAnchoredRight animated:animated onComplete:complete];
 }
 
-- (void)anchorTopViewToLeftAnimated:(BOOL)animated onComplete:(void (^)())complete {
+- (void)anchorTopViewToLeftAnimated:(BOOL)animated onComplete:(void (^)(void))complete {
     [self moveTopViewToPosition:ECSlidingViewControllerTopViewPositionAnchoredLeft animated:animated onComplete:complete];
 }
 
-- (void)resetTopViewAnimated:(BOOL)animated onComplete:(void(^)())complete {
+- (void)resetTopViewAnimated:(BOOL)animated onComplete:(void(^)(void))complete {
     [self moveTopViewToPosition:ECSlidingViewControllerTopViewPositionCentered animated:animated onComplete:complete];
 }
 
 #pragma mark - Private
 
-- (void)moveTopViewToPosition:(ECSlidingViewControllerTopViewPosition)position animated:(BOOL)animated onComplete:(void(^)())complete {
+- (void)moveTopViewToPosition:(ECSlidingViewControllerTopViewPosition)position animated:(BOOL)animated onComplete:(void(^)(void))complete {
     self.isAnimated = animated;
     self.animationComplete = complete;
     [self.view endEditing:YES];
@@ -579,7 +585,7 @@
         return;
     }
     if (self.transitionInProgress) return;
-
+    
     self.view.userInteractionEnabled = NO;
     
     self.transitionInProgress = YES;
@@ -690,15 +696,15 @@
 
 - (void)updateTopViewGestures {
     BOOL topViewIsAnchored = self.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft ||
-                             self.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight;
+    self.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight;
     UIView *topView = self.topViewController.view;
-
+    
     if (topViewIsAnchored) {
         if (self.topViewAnchoredGesture & ECSlidingViewControllerAnchoredGestureDisabled) {
             topView.userInteractionEnabled = NO;
         } else {
             self.gestureView.frame = topView.frame;
-
+            
             if (self.topViewAnchoredGesture & ECSlidingViewControllerAnchoredGesturePanning &&
                 ![self.customAnchoredGesturesViewMap objectForKey:self.panGesture]) {
                 [self.customAnchoredGesturesViewMap setObject:self.panGesture.view forKey:self.panGesture];
@@ -706,7 +712,7 @@
                 [self.gestureView addGestureRecognizer:self.panGesture];
                 if (!self.gestureView.superview) [self.view insertSubview:self.gestureView aboveSubview:topView];
             }
-
+            
             if (self.topViewAnchoredGesture & ECSlidingViewControllerAnchoredGestureTapping &&
                 ![self.customAnchoredGesturesViewMap objectForKey:self.resetTapGesture]) {
                 [self.gestureView addGestureRecognizer:self.resetTapGesture];
@@ -921,6 +927,11 @@
     return CGRectZero;
 }
 
+- (nullable __kindof UIView *)viewForKey:(nonnull UITransitionContextViewKey)key { 
+    return nil;
+}
+
+
 #pragma mark - UIViewControllerTransitionCoordinator
 
 - (BOOL)animateAlongsideTransition:(void(^)(id<UIViewControllerTransitionCoordinatorContext>context))animation
@@ -941,5 +952,49 @@
 - (void)notifyWhenInteractionEndsUsingBlock:(void(^)(id<UIViewControllerTransitionCoordinatorContext>context))handler {
     self.coordinatorInteractionEnded = handler;
 }
+
+- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection { 
+    [super traitCollectionDidChange:previousTraitCollection];
+}
+
+- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container { 
+    [super preferredContentSizeDidChangeForChildContentContainer:container];
+}
+
+- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize { 
+   return  [super sizeForChildContentContainer:container withParentContainerSize:parentSize];
+}
+
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container { 
+    [super systemLayoutFittingSizeDidChangeForChildContentContainer:container];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator { 
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
+
+- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator { 
+    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+}
+
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator { 
+    [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
+}
+
+- (void)setNeedsFocusUpdate { 
+    [super setNeedsFocusUpdate];
+}
+
+- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context { 
+    return [super shouldUpdateFocusInContext:context];
+}
+
+- (void)updateFocusIfNeeded { 
+    [super updateFocusIfNeeded];
+}
+
+@synthesize targetTransform;
+
+@synthesize isInterruptible;
 
 @end
