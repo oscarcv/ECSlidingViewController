@@ -22,6 +22,7 @@
 		54367D801F5D37CA009D5728 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D741F5D37C9009D5728 /* ECSlidingAnimationController.m */; };
 		54367D831F5D37D9009D5728 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54367D821F5D37D9009D5728 /* UIKit.framework */; };
 		54367D851F5D37F3009D5728 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54367D841F5D37F3009D5728 /* Foundation.framework */; };
+		544915001F5D6FEF008B56C2 /* ECSlidingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 544914FE1F5D6DCB008B56C2 /* ECSlidingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544915001F5D6FEF008B56C2 /* ECSlidingViewController.h in Headers */,
 				54367D791F5D37CA009D5728 /* ECSlidingSegue.h in Headers */,
 				54367D7D1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.h in Headers */,
 				54367D751F5D37CA009D5728 /* ECSlidingInteractiveTransition.h in Headers */,
