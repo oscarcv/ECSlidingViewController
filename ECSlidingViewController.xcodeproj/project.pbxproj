@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54367D631F5D376A009D5728 /* ECSlidingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D611F5D376A009D5728 /* ECSlidingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		54367D751F5D37CA009D5728 /* ECSlidingInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D691F5D37C9009D5728 /* ECSlidingInteractiveTransition.h */; };
-		54367D761F5D37CA009D5728 /* ECSlidingConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6A1F5D37C9009D5728 /* ECSlidingConstants.h */; };
+		54367D631F5D376A009D5728 /* ECSlidingContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D611F5D376A009D5728 /* ECSlidingContainerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54367D751F5D37CA009D5728 /* ECSlidingInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D691F5D37C9009D5728 /* ECSlidingInteractiveTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54367D761F5D37CA009D5728 /* ECSlidingConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6A1F5D37C9009D5728 /* ECSlidingConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54367D771F5D37CA009D5728 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D6B1F5D37C9009D5728 /* ECPercentDrivenInteractiveTransition.m */; };
-		54367D781F5D37CA009D5728 /* ECSlidingAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6C1F5D37C9009D5728 /* ECSlidingAnimationController.h */; };
-		54367D791F5D37CA009D5728 /* ECSlidingSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6D1F5D37C9009D5728 /* ECSlidingSegue.h */; };
+		54367D781F5D37CA009D5728 /* ECSlidingAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6C1F5D37C9009D5728 /* ECSlidingAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54367D791F5D37CA009D5728 /* ECSlidingSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6D1F5D37C9009D5728 /* ECSlidingSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54367D7A1F5D37CA009D5728 /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D6E1F5D37C9009D5728 /* ECSlidingSegue.m */; };
-		54367D7B1F5D37CA009D5728 /* ECPercentDrivenInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6F1F5D37C9009D5728 /* ECPercentDrivenInteractiveTransition.h */; };
+		54367D7B1F5D37CA009D5728 /* ECPercentDrivenInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D6F1F5D37C9009D5728 /* ECPercentDrivenInteractiveTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54367D7C1F5D37CA009D5728 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D701F5D37C9009D5728 /* ECSlidingInteractiveTransition.m */; };
-		54367D7D1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D711F5D37C9009D5728 /* UIViewController+ECSlidingViewController.h */; };
+		54367D7D1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54367D711F5D37C9009D5728 /* UIViewController+ECSlidingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54367D7E1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D721F5D37C9009D5728 /* UIViewController+ECSlidingViewController.m */; };
-		54367D7F1F5D37CA009D5728 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D731F5D37C9009D5728 /* ECSlidingViewController.m */; };
+		54367D7F1F5D37CA009D5728 /* ECSlidingContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D731F5D37C9009D5728 /* ECSlidingContainerViewController.m */; };
 		54367D801F5D37CA009D5728 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54367D741F5D37C9009D5728 /* ECSlidingAnimationController.m */; };
 		54367D831F5D37D9009D5728 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54367D821F5D37D9009D5728 /* UIKit.framework */; };
 		54367D851F5D37F3009D5728 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54367D841F5D37F3009D5728 /* Foundation.framework */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		54367D5E1F5D376A009D5728 /* ECSlidingViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ECSlidingViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54367D611F5D376A009D5728 /* ECSlidingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		54367D611F5D376A009D5728 /* ECSlidingContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECSlidingContainerViewController.h; sourceTree = "<group>"; };
 		54367D621F5D376A009D5728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54367D691F5D37C9009D5728 /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
 		54367D6A1F5D37C9009D5728 /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
@@ -38,10 +38,11 @@
 		54367D701F5D37C9009D5728 /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
 		54367D711F5D37C9009D5728 /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
 		54367D721F5D37C9009D5728 /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
-		54367D731F5D37C9009D5728 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		54367D731F5D37C9009D5728 /* ECSlidingContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingContainerViewController.m; sourceTree = "<group>"; };
 		54367D741F5D37C9009D5728 /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
 		54367D821F5D37D9009D5728 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54367D841F5D37F3009D5728 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		544914FE1F5D6DCB008B56C2 /* ECSlidingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +87,12 @@
 				54367D701F5D37C9009D5728 /* ECSlidingInteractiveTransition.m */,
 				54367D6D1F5D37C9009D5728 /* ECSlidingSegue.h */,
 				54367D6E1F5D37C9009D5728 /* ECSlidingSegue.m */,
-				54367D731F5D37C9009D5728 /* ECSlidingViewController.m */,
+				54367D731F5D37C9009D5728 /* ECSlidingContainerViewController.m */,
 				54367D711F5D37C9009D5728 /* UIViewController+ECSlidingViewController.h */,
 				54367D721F5D37C9009D5728 /* UIViewController+ECSlidingViewController.m */,
-				54367D611F5D376A009D5728 /* ECSlidingViewController.h */,
+				54367D611F5D376A009D5728 /* ECSlidingContainerViewController.h */,
 				54367D621F5D376A009D5728 /* Info.plist */,
+				544914FE1F5D6DCB008B56C2 /* ECSlidingViewController.h */,
 			);
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
@@ -114,7 +116,7 @@
 				54367D791F5D37CA009D5728 /* ECSlidingSegue.h in Headers */,
 				54367D7D1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.h in Headers */,
 				54367D751F5D37CA009D5728 /* ECSlidingInteractiveTransition.h in Headers */,
-				54367D631F5D376A009D5728 /* ECSlidingViewController.h in Headers */,
+				54367D631F5D376A009D5728 /* ECSlidingContainerViewController.h in Headers */,
 				54367D781F5D37CA009D5728 /* ECSlidingAnimationController.h in Headers */,
 				54367D7B1F5D37CA009D5728 /* ECPercentDrivenInteractiveTransition.h in Headers */,
 				54367D761F5D37CA009D5728 /* ECSlidingConstants.h in Headers */,
@@ -190,7 +192,7 @@
 			files = (
 				54367D7A1F5D37CA009D5728 /* ECSlidingSegue.m in Sources */,
 				54367D801F5D37CA009D5728 /* ECSlidingAnimationController.m in Sources */,
-				54367D7F1F5D37CA009D5728 /* ECSlidingViewController.m in Sources */,
+				54367D7F1F5D37CA009D5728 /* ECSlidingContainerViewController.m in Sources */,
 				54367D771F5D37CA009D5728 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				54367D7E1F5D37CA009D5728 /* UIViewController+ECSlidingViewController.m in Sources */,
 				54367D7C1F5D37CA009D5728 /* ECSlidingInteractiveTransition.m in Sources */,

@@ -43,7 +43,7 @@
 }
 
 - (void)perform {
-    ECSlidingViewController *slidingViewController = [[self sourceViewController] slidingViewController];
+    ECSlidingContainerViewController *slidingViewController = [[self sourceViewController] slidingViewController];
     UIViewController *destinationViewController    = [self destinationViewController];
     
     if (self.isUnwinding) {

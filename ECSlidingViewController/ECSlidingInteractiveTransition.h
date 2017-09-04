@@ -24,9 +24,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ECPercentDrivenInteractiveTransition.h"
-#import "ECSlidingViewController.h"
+#import "ECSlidingContainerViewController.h"
 
-@class ECSlidingViewController;
+@class ECSlidingContainerViewController;
 
 /**
  Used internally by `ECSlidingViewController` as the default interactive transition. It uses the sliding view controller's `panGesture` to do a percent driven interaction transition. In most cases, developers will not need to use this class for anything, but it provides a good example of how to implement a percent driven transition with a gesture.
@@ -36,6 +36,6 @@
  The initial direction of the panning determines the type of operation that is triggered. The reveal width represents 100 percent, and the panning distance determines values in-between the reveal width.
  */
 @interface ECSlidingInteractiveTransition : ECPercentDrivenInteractiveTransition
-- (id)initWithSlidingViewController:(ECSlidingViewController *)slidingViewController;
+- (id)initWithSlidingViewController:(ECSlidingContainerViewController *)slidingViewController;
 - (void)updateTopViewHorizontalCenterWithRecognizer:(UIPanGestureRecognizer *)recognizer;
 @end

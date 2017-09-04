@@ -21,13 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "ECSlidingViewController.h"
+#import "ECSlidingContainerViewController.h"
 
 #import "ECSlidingAnimationController.h"
 #import "ECSlidingInteractiveTransition.h"
 #import "ECSlidingSegue.h"
 
-@interface ECSlidingViewController()
+@interface ECSlidingContainerViewController()
 @property (nonatomic, assign) ECSlidingViewControllerOperation currentOperation;
 @property (nonatomic, strong) ECSlidingAnimationController *defaultAnimationController;
 @property (nonatomic, strong) ECSlidingInteractiveTransition *defaultInteractiveTransition;
@@ -65,7 +65,7 @@
 - (void)updateTopViewGestures;
 @end
 
-@implementation ECSlidingViewController
+@implementation ECSlidingContainerViewController
 
 @synthesize topViewController=_topViewController;
 @synthesize underLeftViewController=_underLeftViewController;

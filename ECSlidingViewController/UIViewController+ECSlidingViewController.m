@@ -25,13 +25,13 @@
 
 @implementation UIViewController (ECSlidingViewController)
 
-- (ECSlidingViewController *)slidingViewController {
+- (ECSlidingContainerViewController *)slidingViewController {
     UIViewController *viewController = self.parentViewController ? self.parentViewController : self.presentingViewController;
-    while (!(viewController == nil || [viewController isKindOfClass:[ECSlidingViewController class]])) {
+    while (!(viewController == nil || [viewController isKindOfClass:[ECSlidingContainerViewController class]])) {
         viewController = viewController.parentViewController ? viewController.parentViewController : viewController.presentingViewController;
     }
     
-    return (ECSlidingViewController *)viewController;
+    return (ECSlidingContainerViewController *)viewController;
 }
 
 @end

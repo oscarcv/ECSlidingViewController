@@ -24,7 +24,7 @@
 #import "ECSlidingInteractiveTransition.h"
 
 @interface ECSlidingInteractiveTransition ()
-@property (nonatomic, assign) ECSlidingViewController *slidingViewController;
+@property (nonatomic, assign) ECSlidingContainerViewController *slidingViewController;
 @property (nonatomic, assign) BOOL positiveLeftToRight;
 @property (nonatomic, assign) CGFloat fullWidth;
 @property (nonatomic, assign) CGFloat currentPercentage;
@@ -35,7 +35,7 @@
 
 #pragma mark - Constructors
 
-- (id)initWithSlidingViewController:(ECSlidingViewController *)slidingViewController {
+- (id)initWithSlidingViewController:(ECSlidingContainerViewController *)slidingViewController {
     self = [super init];
     if (self) {
         self.slidingViewController = slidingViewController;
